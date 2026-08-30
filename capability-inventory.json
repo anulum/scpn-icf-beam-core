@@ -1,0 +1,13 @@
+{
+  "capabilities": [],
+  "claims": [],
+  "evidence_maturity": "architecture_only",
+  "implemented_capability_count": 0,
+  "project": "SCPN-ICF-BEAM-CORE",
+  "schema": "scpn.capability-inventory.v1",
+  "schema_version": "1.0.0",
+  "source": {
+    "manifest_path": "reactor-domain.json",
+    "manifest_sha256": "fdd1412b42389f011d5634ed00d29278e3e1055a6334c28101c8747c512aa7a5"
+  }
+}
