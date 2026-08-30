@@ -10,9 +10,10 @@ SCPN ICF Beam Core — CONTROL adapter specification
 
 # CONTROL adapter specification
 
-**Adapter identifier:** `scpn-icf-beam-core.control-adapter`  
+**Adapter identifier:** `scpn-icf-beam-core.control-adapter`
+
 **Contract version:** `0.1.0-spec` (specification only — **no implementation
-exists**)  
+exists**)
 **Consumer:** `SCPN-CONTROL` plugin protocol
 
 This document is the device-owned contract through which a future beam-ICF
