@@ -5,7 +5,13 @@
     "spo_actionable": false,
     "spo_semantic_mode": "review_only"
   },
-  "capabilities": [],
+  "capabilities": [
+    {
+      "evidence_maturity": "computational_prototype",
+      "evidence_pointer": "VALIDATION.md#device-configuration-model",
+      "identifier": "device_configuration_model"
+    }
+  ],
   "configurations": [
     "ion_beam_icf",
     "pulsed_electron_beam_icf"
@@ -16,10 +22,10 @@
     "identifier": "scpn-icf-beam-core.control-adapter"
   },
   "device_family": "beam_icf",
-  "evidence_maturity": "architecture_only",
+  "evidence_maturity": "computational_prototype",
   "lifecycle": {
     "evidence_pointer": null,
-    "reason": "architecture_only: no implemented capability exists to federate",
+    "reason": "federation gates have not run; capabilities remain repository-local",
     "state": "not_federated"
   },
   "machine_protection": {
@@ -31,8 +37,9 @@
     "not safety-certified",
     "not autonomous-plant-ready",
     "not commercially reactor-ready",
-    "no implemented solver, controller, benchmark, dataset, or deployable artefact",
-    "no experimental correlation"
+    "no implemented solver, controller, benchmark, dataset, or published artefact",
+    "no experimental correlation",
+    "no parameter set describes or validates any real machine"
   ],
   "project": "SCPN-ICF-BEAM-CORE",
   "research_group": {
@@ -45,7 +52,7 @@
     "manifest_path": "reactor-domain.json",
     "manifest_schema": "scpn.reactor-domain.v1",
     "manifest_schema_version": "1.0.0",
-    "manifest_sha256": "fdd1412b42389f011d5634ed00d29278e3e1055a6334c28101c8747c512aa7a5",
+    "manifest_sha256": "41af24b3f3bc4a45ed81893e9014dd47cac5ac229b4b93dde6524318d085be6c",
     "repository": "SCPN-ICF-BEAM-CORE"
   },
   "spo_registry": {
