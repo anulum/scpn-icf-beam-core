@@ -4,16 +4,21 @@
       "evidence_maturity": "computational_prototype",
       "evidence_pointer": "VALIDATION.md#device-configuration-model",
       "identifier": "device_configuration_model"
+    },
+    {
+      "evidence_maturity": "computational_prototype",
+      "evidence_pointer": "VALIDATION.md#diagnostic-and-clock-semantics",
+      "identifier": "diagnostic_clock_semantics"
     }
   ],
   "claims": [],
   "evidence_maturity": "computational_prototype",
-  "implemented_capability_count": 1,
+  "implemented_capability_count": 2,
   "project": "SCPN-ICF-BEAM-CORE",
   "schema": "scpn.capability-inventory.v1",
   "schema_version": "1.0.0",
   "source": {
     "manifest_path": "reactor-domain.json",
-    "manifest_sha256": "41af24b3f3bc4a45ed81893e9014dd47cac5ac229b4b93dde6524318d085be6c"
+    "manifest_sha256": "a811424c5beab65940dfebfe70bffe1d80fe46ae8a0948167b9c37a1460c45ea"
   }
 }
