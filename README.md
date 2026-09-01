@@ -8,6 +8,11 @@ Contact: www.anulum.li | protoscience@anulum.li
 SCPN ICF Beam Core — README
 -->
 
+<div align="center">
+  <img src="docs/assets/repo_header.png"
+       alt="SCPN ICF Beam Core — Mass Instead Of Light">
+</div>
+
 # SCPN ICF Beam Core
 
 Governed device-family repository for particle-beam-driven inertial
