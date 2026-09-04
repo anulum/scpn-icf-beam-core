@@ -72,7 +72,7 @@
     "manifest_path": "reactor-domain.json",
     "manifest_schema": "scpn.reactor-domain.v1",
     "manifest_schema_version": "1.0.0",
-    "manifest_sha256": "69b6f1d5f6dc0fb27485ddc2b9759c640e16cc10adca0c6ec7d0796365c7e4ad",
+    "manifest_sha256": "de3823e4afcc6d01813b8a370a3d7832e13cf3918234ded770be66d7021f4c6b",
     "repository": "SCPN-ICF-BEAM-CORE"
   },
   "spo_registry": {
