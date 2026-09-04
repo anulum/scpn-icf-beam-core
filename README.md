@@ -23,7 +23,7 @@ beam-ICF configurations of the SCPN Phase Orchestrator reactor registry:
 `pulsed_electron_beam_icf` (electron-beam-driven target).
 
 **Evidence maturity: `computational_prototype`** (per-capability; ADR 0002).
-Three capabilities are implemented: the device configuration model —
+Five capabilities are implemented: the device configuration model —
 validated parameter objects with documented consistency estimates,
 canonical serialisation, and a data-only SPO registry pin
 (evidence: `VALIDATION.md#device-configuration-model`); the
@@ -35,7 +35,16 @@ physics — the illumination geometry a particle-beam driver puts on a
 target, the mass inventory of a layered capsule, and the chain of
 efficiencies between the beam and the energy the fuel releases,
 anchored on two freely published laboratory preprints (ADR 0005,
-evidence: `VALIDATION.md#level-0-device-physics`). No parameter set or
+evidence: `VALIDATION.md#level-0-device-physics`); the device 3D model
+— the tessellated capsule and its three layers, every radius of which
+is printed by the filed source, built on the shared reactor kernel
+library (ADR 0006, evidence: `VALIDATION.md#device-3d-model`); and the
+device CAD model — the same bodies as exact solids with fail-closed
+evidence against their analytic forms and a normalised STEP export,
+behind the optional `cad` extra (ADR 0006, evidence:
+`VALIDATION.md#device-cad-model`). No radiation enclosure is drawn at
+either tier: the design has one and no filed source prints a dimension
+of it. No parameter set or
 channel describes any real machine or diagnostic; the claim inventory
 is empty and verified by the domain validator.
 

@@ -14,6 +14,30 @@ SCPN ICF Beam Core — CHANGELOG
 
 ### Added
 
+- Device 3D and CAD models of the beam-driven capsule
+  (`src/scpn_icf_beam_core/geometry/`), the fourth and fifth implemented
+  capabilities at `computational_prototype`: the ablator shell, the
+  solid fuel layer and the vapour cavity as a tessellated model
+  (`scpn.beam-icf-3d-model.v1`) and as exact B-rep solids
+  (`scpn.beam-icf-cad-model.v1`) checked fail-closed by the shared
+  library's evidence kernel against their analytic closed forms and
+  their tier-G1 twins, with canonical serialisation, SHA-256 digest
+  identity and a normalised STEP export. The geometry package declares
+  nothing of its own: all three radii are printed by the filed source
+  and already live in the configuration and the level-0 capsule
+  declaration. No radiation enclosure is drawn — the design has one and
+  no filed source prints a dimension of it — and the absence is stated
+  in the non-claims of both tiers rather than left to be noticed
+  (design record `docs/adr/0006-device-3d-and-cad-models.md`, consumer
+  contract `docs/DEVICE_3D_MODEL_CONTRACT.md`).
+- First dependency: the shared reactor kernel library pinned by commit,
+  with the CAD back-end as an optional `cad` extra naming the same
+  commit; a manifest `kernel_library` pin naming the eleven kernels this
+  repository consumes; and install steps in three workflows, one of
+  which also installs the system library the mesher links against. A
+  repository contract test holds the pin, the dependency and the
+  workflows to one commit.
+
 - Diagnostic-plan depth: per-channel signal inventories, frame
   transformations with a fixed kind-admissibility table and connectivity
   rule, and a clock topology partitioning the physical clocks into rooted

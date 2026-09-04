@@ -20,6 +20,16 @@
       "evidence_maturity": "computational_prototype",
       "evidence_pointer": "VALIDATION.md#level-0-device-physics",
       "identifier": "level0_device_physics"
+    },
+    {
+      "evidence_maturity": "computational_prototype",
+      "evidence_pointer": "VALIDATION.md#device-3d-model",
+      "identifier": "device_3d_model"
+    },
+    {
+      "evidence_maturity": "computational_prototype",
+      "evidence_pointer": "VALIDATION.md#device-cad-model",
+      "identifier": "device_cad_model"
     }
   ],
   "configurations": [
@@ -62,7 +72,7 @@
     "manifest_path": "reactor-domain.json",
     "manifest_schema": "scpn.reactor-domain.v1",
     "manifest_schema_version": "1.0.0",
-    "manifest_sha256": "768d72ee8bd1e08b749030ef4df80ce66b72c01f118da1c1bc475c61c7162bea",
+    "manifest_sha256": "69b6f1d5f6dc0fb27485ddc2b9759c640e16cc10adca0c6ec7d0796365c7e4ad",
     "repository": "SCPN-ICF-BEAM-CORE"
   },
   "spo_registry": {

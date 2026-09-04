@@ -300,3 +300,138 @@ Boundaries:
 - No value describes, approximates or validates any real machine or
   shot; an anchor reproduces a number a filed source prints and nothing
   further.
+
+## Device 3D model
+
+Evidence record of the `device_3d_model` capability
+(`computational_prototype`; design record:
+`docs/adr/0006-device-3d-and-cad-models.md`; consumer contract:
+`docs/DEVICE_3D_MODEL_CONTRACT.md`).
+
+What is exercised, all under the 100 % statement-and-branch coverage gate:
+
+- The body set of each owned configuration, in its fixed order: the same
+  three concentric capsule bodies for both, and the map covering exactly
+  the configurations this repository owns.
+- The single conversion from the millimetres the level-0 declaration
+  carries to the metres the bodies are built in, with the
+  configuration's own micrometres converted by the level-0 relation that
+  owns them rather than a second time here.
+- A fuel layer that leaves no ablator inside the pellet refused by the
+  level-0 relation itself, from both directions — a layering too large
+  for its pellet, and a pellet too small for its layering — so this tier
+  cannot draw a capsule the physics record would have rejected.
+- The two resolutions asserted not to be interchangeable, in two tests:
+  one recording that at the anchor counts the multiple-of-eight rule
+  happens to catch the swap, and one showing that where both counts are
+  legal nothing objects.
+- Canonical serialisation and SHA-256 digest identity of the model
+  record, including the digests of the configuration and the capsule
+  declaration it was built from, and that a configuration change leaves
+  the capsule digest where it was.
+
+Anchors — printed values reproduced, and nothing further:
+
+- All three printed radii — 2.34 mm, 2.12 mm and 1.8 mm — read off the
+  built bodies as exact equalities. The sphere profile places a vertex
+  at exactly the centre plus the radius and the capsule is centred on
+  the origin.
+- Every radius is printed. The cavity is anchored rather than derived,
+  which is the difference from the laser-ICF family, whose review prints
+  an outer radius and two thicknesses.
+
+Measured, rather than assumed:
+
+- The printed layer thicknesses do **not** return exactly: the ablator
+  comes back as 0.2199999999999997 and the fuel layer as
+  0.3200000000000002, at 1.4e-15 and 5.2e-16 relative. The cause is the
+  opposite of the laser family's — there the source prints integer
+  micrometres and the conversion to metres introduces the rounding,
+  while here the printed millimetres are already inexact in binary,
+  2.34 − 2.12 being 0.21999999999999975 before any conversion. The test
+  carries a measured bound and asserts the inequality explicitly.
+
+Boundaries:
+
+- **No radiation enclosure is drawn.** Both filed sources describe one
+  and neither prints a case radius, wall thickness or length; the one
+  schematic showing it carries no dimension callouts. The level-0
+  `equivalent_enclosure_radius_mm` is the radius of a sphere of equal
+  *area*, derived from a printed area ratio, and is not a case
+  dimension. The absence is stated in the non-claims of both tiers and a
+  test asserts that it is.
+- **Nothing here is evidence about `pulsed_electron_beam_icf`.** Both
+  filed sources are heavy-ion. That configuration builds from whatever
+  is declared for it; a test asserts that its record differs from the
+  ion-class one and that the non-claims say so.
+- Every body is an inscribed polyhedron of revolution. Comparing any
+  volume here to `4/3 pi r^3` compares two different solids.
+
+## Device CAD model
+
+Evidence record of the `device_cad_model` capability
+(`computational_prototype`; design record:
+`docs/adr/0006-device-3d-and-cad-models.md`). The tier is behind the
+optional `cad` extra; two CI jobs install it.
+
+What is exercised, all under the same coverage gate:
+
+- The same body set and the same order as tier G1.
+- The library's fail-closed evidence on every body: the back-end's
+  volume and area against the analytic closed forms, the faceted volume
+  against the declared chord-deficit bound, and the faceted volume
+  against the tier-G1 mesh of the same body.
+- The assembly manifest, the normalised STEP bytes and their digest, and
+  the pinned back-end versions.
+- Refusals: an unknown identifier, a manifest of the wrong schema, a
+  manifest counting the wrong number of bodies, a body set in the wrong
+  order, and an invalid deflection arriving as this package's own error
+  type.
+
+Measured on this family's own bodies, and recorded because none of it
+transfers from a sibling:
+
+- **The ring count is bounded, and the bound is not a simple ceiling.**
+  Scanning every count from 30 to 75: to 41 every count is exact; from
+  42 to 65 every even count refuses and every odd count is exact; from
+  66 upward every count refuses. The first refusal is at 42, where the
+  fuel shell departs by 8.2e-5 against a 1e-9 tolerance.
+- **The parity is measured; its cause is not claimed.** An even ring
+  count places exactly one profile sample on the equator, at exactly
+  `(0, R)`, and an odd count places none; the refusals in the mixed band
+  fall exactly on the even counts. Whether that is what the revolve
+  fails on is not established here.
+- **The default is the top of the first regime, not the highest count
+  that builds.** Odd counts to 65 build and are not used: their margin
+  is one step, on a parity whose cause is unknown.
+- **The count is 41 here and 39 in the laser family.** Where the band
+  starts moves with the body's radius: measured on solid spheres, the
+  first refusal is at 34 rings for 1.0 mm, 40 at 1.503 mm, 42 at 1.8 mm,
+  46 at 2.34 mm, 50 at 3.0 mm and 58 at 5.0 mm, with nothing failing at
+  10 mm and above up to 120 rings. No family may inherit a sibling's
+  count.
+- **The linear deflection does not change the model at all.** Across
+  5e-7, 3e-7, 2.5e-7, 2e-7, 1.5e-7 and 1.2e-7 metres the faceted volume
+  deficit of every body is the same number to five significant figures;
+  what moves is the declared bound `2 d / r`. A test asserts this
+  directly by building at two deflections and comparing both the
+  deficits and the ratio of the bounds.
+- **The threshold is therefore exact, not a rung on a ladder.** The
+  smallest deflection the worst body clears is `deficit * r / 2` =
+  1.1326e-7 m, computed from the built model by a test that asserts it
+  lies between the refused 1e-7 m and the declared 2e-7 m. The declared
+  value leaves the vapour core at 0.57 of its bound, which is a stated
+  margin against back-end drift rather than the strongest claim
+  available.
+- **The angular deflection does not bind.** Between 0.5 and 0.1 radians
+  every body's deficit is identical to four significant figures.
+- The deficit bound of each body uses that body's **outer** radius,
+  which is the tightest bound a body of revolution admits; a sphere's
+  circles run to zero at the poles and would make the bound unbounded.
+
+Boundaries:
+
+- Determinism of the STEP bytes is claimed within one pinned back-end
+  environment only, never across back-end versions.
+- No body is an engineering model and no fabrication tolerance is
+  carried.
