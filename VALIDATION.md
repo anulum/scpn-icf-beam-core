@@ -204,3 +204,99 @@ gate:
   domain (`clk_facility` root, `clk_shot` member); multi-domain rules
   are exercised by test-constructed plans. Scopes are declarations;
   `mapping_state` stays `unmapped`.
+
+## Level-0 device physics
+
+Evidence record of the `level0_device_physics` capability
+(`computational_prototype`; design record:
+`docs/adr/0005-level0-device-physics.md`).
+
+The work this repository cites for its driver window is behind a
+subscription and is not on file. Two United States Department of Energy
+laboratory preprints are, both marked for unlimited distribution, and
+every anchor below is read from one of them. **Both describe heavy-ion
+drivers**, and nothing here is evidence about the electron-beam
+configuration this repository also owns.
+
+What is exercised, all under the 100 % statement-and-branch coverage gate:
+
+- The illumination geometry of a multibeam arrangement: the elliptical
+  focal spot, its area, its effective radius, the equal split of driver
+  energy across both cones, and the spot-averaged fluence.
+- The mass inventory of a three-layer capsule from radii and densities,
+  and the energy its fuel can release, with the deuterium-tritium
+  specific energy built from the two nuclear masses and the released
+  energy per reaction rather than carried as a rounded constant.
+- The factorisation `G_target = eta_c eta_e G_capsule`, in both
+  directions, and the enclosure area a capsule-to-enclosure ratio
+  implies.
+- A composed record that builds the ablator's thickness from the
+  configuration's pellet radius and the declaration's fuel radius, and
+  refuses a fuel layer that reaches or passes the pellet's surface.
+- Every declared quantity validated where it is declared as well as
+  inside the relation that consumes it.
+- Canonical serialisation (sorted keys, NaN/infinity rejected) and
+  SHA-256 digest identity of the record.
+
+Anchors — printed values reproduced, and nothing further:
+
+- The capsule's three radii and three densities, and every mass that
+  follows: 25.45 mg of ablator against 3.87 mg of solid fuel and
+  0.0073 mg of vapour.
+- The effective radius `sqrt(a b)` of both printed focal spots,
+  reproduced at the precision each printed answer carries: 2.7331 for a
+  review that prints 2.7, and 1.6673 for one that prints 1.67.
+- The printed beam counts of eight and sixteen per side doubling into
+  the printed totals of sixteen and thirty-two.
+- The capsule gain, exactly 430 from a printed 430 MJ and a printed
+  1 MJ.
+
+Implied by printed values, and labelled as implied rather than
+reproduced:
+
+- The burn-up fraction, 0.3286 of the inventory. The source prints a
+  yield and never a fraction, so this is the only available direction.
+- The conversion efficiency, 0.8859. The source plots it against
+  converter radius and never prints a number; this is what its own four
+  printed quantities require of the fifth.
+
+Reconstructed, and named for it in the fixtures:
+
+- The driver energy of the capsule design, which neither source prints.
+  It is the printed yield over the printed system gain, so recovering
+  that gain from it is a round trip; the test that does so states that
+  it proves arithmetic and not a property of the design.
+
+Measured, rather than assumed:
+
+- **Neither layer thickness returns exactly.** The printed radii are
+  decimals in millimetres, so their differences carry rounding: the
+  ablator gives 0.21999999999999975 and the fuel layer
+  0.32000000000000006. The sibling laser family's printed radii are
+  whole micrometres and its layer arithmetic is exact; this one's is
+  not, and both tests are bounds with the reason written down.
+- **The illumination review truncates its gains rather than rounding
+  them.** 370/6.35 is 58.2677 and it prints 58; 413/7.4 is 55.8108 and
+  it prints 55; 436/3.3 is 132.1212 and it prints 132. All three are
+  floors and the middle one is not the rounded value.
+- **No single power law joins the three printed range-and-energy
+  pairs.** The exponents are 1.1200, 1.2544 and 1.1926. The module
+  exposes the exponent between two pairs and never fits a range law, and
+  the test asserts that the exponents disagree.
+- **The two families' enclosure ratios are different quantities.** This
+  family's source prints capsule-to-enclosure 0.075, whose reciprocal is
+  13.33; the laser family's precursor prints enclosure-to-capsule 15 to
+  25. Neither checks the other.
+
+Boundaries:
+
+- The pulse duration used by the fixtures is declared and no source is
+  claimed for it.
+- The beams are split equally and the fluence is averaged over the whole
+  ellipse; the sources' beams are Gaussian, so no value here is a peak.
+- An implied burn-up fraction or conversion efficiency above one is
+  returned rather than refused, because it is the finding that the
+  declarations do not describe one design.
+- No value describes, approximates or validates any real machine or
+  shot; an anchor reproduces a number a filed source prints and nothing
+  further.

@@ -8,14 +8,17 @@
 
 """Device capability models of the SCPN beam-ICF device family.
 
-Public surface of the ``device_configuration_model`` and
-``diagnostic_clock_semantics`` capabilities at
-``computational_prototype`` maturity: validated parameter objects,
-synthetic diagnostic and clock declarations aligned with the pinned SPO
-observability catalogue, documented consistency estimates, canonical
-serialisation with SHA-256 digests, and data-only pins to the SPO
-registries. No claim about any real machine or diagnostic is made
-anywhere in this package.
+Public surface of the ``device_configuration_model``,
+``diagnostic_clock_semantics`` and ``level0_device_physics``
+capabilities at ``computational_prototype`` maturity: validated
+parameter objects, synthetic diagnostic and clock declarations aligned
+with the pinned SPO observability catalogue, the illumination geometry
+of a particle-beam driver, the mass inventory of a layered capsule and
+the chain of efficiencies between the beam and the energy its fuel
+releases, documented consistency estimates, canonical serialisation
+with SHA-256 digests, and data-only pins to the SPO registries. No
+claim about any real machine or diagnostic is made anywhere in this
+package.
 """
 
 from __future__ import annotations
@@ -56,6 +59,23 @@ from scpn_icf_beam_core.parameters import (
     BeamDriver,
     TargetDeclaration,
 )
+from scpn_icf_beam_core.physics import (
+    LEVEL0_NON_CLAIMS,
+    LEVEL0_SCHEMA,
+    LEVEL0_SCHEMA_VERSION,
+    CapsuleDeclaration,
+    IlluminationDeclaration,
+    Level0Physics,
+    OperatingPoint,
+    ShotDeclaration,
+    burnup_from_yield,
+    capsule_gain,
+    dt_specific_energy_j_per_g,
+    effective_spot_radius_mm,
+    implied_conversion_efficiency,
+    level0_physics,
+    target_gain,
+)
 from scpn_icf_beam_core.plan_envelope import (
     PlanEnvelope,
     envelope_for_plan,
@@ -71,10 +91,14 @@ __all__ = [
     "BEAM_SPECIES",
     "CATALOGUE_BINDING",
     "HEAVY_ION_ENERGY_WINDOW_GEV",
+    "LEVEL0_NON_CLAIMS",
+    "LEVEL0_SCHEMA",
+    "LEVEL0_SCHEMA_VERSION",
     "OWNED_CONFIGURATIONS",
     "SPECIES_BY_IDENTIFIER",
     "BeamDriver",
     "CandidateProfile",
+    "CapsuleDeclaration",
     "ClockKind",
     "ClockModel",
     "ClockRelation",
@@ -86,20 +110,31 @@ __all__ = [
     "DiagnosticPlan",
     "DiagnosticPlanError",
     "FrameKind",
+    "IlluminationDeclaration",
+    "Level0Physics",
     "ObservabilityBinding",
     "ObservabilityClass",
+    "OperatingPoint",
     "PlanEnvelope",
     "ReferenceFrame",
     "RegistryBinding",
     "SemanticCarrier",
+    "ShotDeclaration",
     "TargetDeclaration",
     "__version__",
+    "burnup_from_yield",
+    "capsule_gain",
     "configuration_from_bytes",
     "configuration_from_record",
+    "dt_specific_energy_j_per_g",
+    "effective_spot_radius_mm",
     "envelope_for_plan",
     "envelope_from_bytes",
     "envelope_from_record",
+    "implied_conversion_efficiency",
+    "level0_physics",
     "plan_from_bytes",
     "plan_from_record",
+    "target_gain",
     "verify_envelope",
 ]
