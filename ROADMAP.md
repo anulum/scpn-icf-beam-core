@@ -5,60 +5,14 @@ Commercial license available
 © Code 2020–2026 Miroslav Šotek. All rights reserved.
 ORCID: 0009-0009-3560-0851
 Contact: www.anulum.li | protoscience@anulum.li
-SCPN ICF Beam Core — ROADMAP
+SCPN ICF BEAM CORE — research milestones
 -->
 
 # Roadmap
 
-Planned work and implemented capability are kept strictly separate. Anything
-listed under "Planned" carries no implementation, no code, and no claim in
-this repository until it appears in the capability inventory with evidence.
+Planned milestones; completion depends on published evidence and validation.
 
-## Implemented (repository infrastructure, not reactor capability)
-
-- Domain manifest (`reactor-domain.json`) with validator.
-- Derived Studio portfolio descriptor (`not_federated`) with drift check.
-- Generated capability inventory (truthfully empty) with drift check.
-- CONTROL adapter specification (contract only, no implementation).
-- Local and workflow gate definitions (lint, typing, tests, coverage,
-  REUSE, security audit, SBOM, documentation checks).
-
-- **Device configuration model** (landed 2026-08-31) — validated
-  beam-driver and target objects for `ion_beam_icf` and
-  `pulsed_electron_beam_icf` with the hard species class invariant, the
-  beam-power relation `P = E / tau`, a heavy-ion particle-energy window
-  advisory (Bangerter et al. 2013), canonical digests, and the SPO
-  registry data pin; `computational_prototype` (ADR 0002,
-  `VALIDATION.md#device-configuration-model`). Driver-chain classes and
-  deposition envelopes remain future work under the same capability.
-- **Diagnostic and clock semantics** (landed 2026-08-31) — synthetic
-  diagnostic-channel and clock declarations aligned fail-closed with the
-  pinned SPO observability-profile catalogue (release `1.0.0`): candidate
-  applicability, carrier admissibility, exact evidence vocabularies,
-  clock-kind compatibility, Nyquist and event-timing bounds, canonical
-  digests; the reference plan mirrors canonical practice
-  (bunch-timing train, trajectory radiography, asymmetry mode set, shot-outcome set, synthetic oscillator); `computational_prototype` (ADR 0003,
-  `VALIDATION.md#diagnostic-and-clock-semantics`). No ingress is
-  declared; the SPO semantic-profile state remains `not_declared`.
-
-## Planned (no implementation exists; ordering is not a commitment)
-1. **Safety-envelope declaration** — machine-readable operational envelope
-   (beam, magnet, diode, activation bounds) consumed by the CONTROL
-   adapter contract.
-2. **CONTROL adapter implementation** — device-owned adapter against the
-   published specification, with replay fixtures and HIL evidence,
-   targeting `control_research_ready` only after replay and HIL
-   acceptance.
-3. **Solver seam consumption** — versioned consumption of exact
-   `SCPN-FUSION-CORE` seams for deposition and implosion surfaces,
-   strictly after the family migration gate proves exact replacement; no
-   solver code is copied.
-4. **Facility-data correlation** — preregistered acceptance contracts
-   against identified facility or published experimental data, targeting
-   `experiment_correlated` per capability.
-
-## Not planned in this repository
-
-Laser-driven ICF, projectile/impact ICF, non-imploding beam-target
-systems, magnetic-confinement devices, generic controller mathematics,
-machine-protection logic, and any direct actuation path.
+1. Establish reference cases and source support for particle-beam capsule and deposition studies.
+2. Validated target compression and energy coupling comparisons.
+3. Independently assess prediction accuracy and uncertainty against held-out reference cases.
+4. Provide reproducible design studies, understandable results and documented integration.
