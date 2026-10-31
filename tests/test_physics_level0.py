@@ -141,7 +141,7 @@ def test_the_record_carries_the_measured_inventory_and_the_implied_fraction() ->
     assert math.isclose(point.fuel_mass_mg, 3.870576190509178, rel_tol=1e-12)
     assert math.isclose(point.vapour_mass_mg, 0.00732870734229427, rel_tol=1e-12)
     assert point.fuel_inventory_mg == point.fuel_mass_mg + point.vapour_mass_mg
-    assert math.isclose(point.burnup_fraction, 0.3285724982472429, rel_tol=1e-12)
+    assert math.isclose(point.burnup_fraction, 0.3285719301897084, rel_tol=1e-12)
 
 
 def test_the_record_carries_the_illumination_the_review_prints() -> None:

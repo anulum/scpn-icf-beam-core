@@ -41,7 +41,7 @@ MEASURED_FUEL_MASS_MG = 3.870576190509178
 MEASURED_VAPOUR_MASS_MG = 0.00732870734229427
 MEASURED_ABLATOR_MASS_MG = 25.45458943737721
 #: The burn-up fraction the printed yield implies for that inventory.
-MEASURED_BURNUP_FRACTION = 0.32857249824724294
+MEASURED_BURNUP_FRACTION = 0.3285719301897084
 
 
 def test_the_specific_energy_is_built_from_the_masses_and_the_release() -> None:
@@ -232,3 +232,21 @@ def test_every_areal_density_input_must_be_positive(
     """A zero path or a zero density is refused by name."""
     with pytest.raises(DeviceConfigurationError, match=field):
         areal_density_g_cm2(path, density)
+
+
+def test_the_nuclear_masses_are_one_named_edition() -> None:
+    """The mass unit and both nuclear masses are CODATA 2022.
+
+    The reference values are CODATA 2022 as SciPy 1.17.1 serves them. The
+    release is the CODATA 2022 Q-value, 17.5892 MeV, at four figures.
+    """
+    from scpn_icf_beam_core.physics.capsule import (
+        ATOMIC_MASS_UNIT_KG,
+        DEUTERON_MASS_U,
+        TRITON_MASS_U,
+    )
+
+    assert ATOMIC_MASS_UNIT_KG == 1.66053906892e-27
+    assert DEUTERON_MASS_U == 2.013553212544
+    assert TRITON_MASS_U == 3.01550071597
+    assert round(17.589247903765397, 2) == DT_FUSION_ENERGY_MEV

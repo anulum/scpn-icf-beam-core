@@ -14,6 +14,12 @@ SCPN ICF Beam Core — CHANGELOG
 
 ### Fixed
 
+- The triton mass in `physics/capsule.py` was mistyped (3.01550941034 u,
+  2.9e-6 relative above any CODATA value) and the deuteron mass was the
+  CODATA 2018 value beside a CODATA 2022 mass unit. Both are now CODATA 2022
+  and named; the D-T specific energy rises by 1.7e-6 relative and the
+  burn-up fraction of a record falls by the same amount. The 17.59 MeV
+  release is named as the CODATA 2022 Q-value rounded.
 - `build_device_cad` raises `CadUnavailableError` when the optional CAD
   back-end is missing, as documented; it previously re-raised it as
   `DeviceGeometryError`.

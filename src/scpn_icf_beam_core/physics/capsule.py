@@ -40,10 +40,16 @@ ATOMIC_MASS_UNIT_KG: Final = 1.66053906892e-27
 #: One megaelectronvolt in joules (exact, from the 2019 SI definition of
 #: the elementary charge).
 MEGAELECTRONVOLT_J: Final = 1.602176634e-13
-#: Deuteron and triton masses in atomic mass units.
-DEUTERON_MASS_U: Final = 2.013553212745
-TRITON_MASS_U: Final = 3.01550941034
-#: Energy released by one D + T -> alpha + n reaction, in MeV.
+#: Deuteron and triton masses in atomic mass units (CODATA 2022, the same
+#: edition as the atomic mass unit above). Until 2026-10-31 the deuteron
+#: carried the CODATA 2018 value and the triton a mistyped one (2.9e-6
+#: relative high); the specific energy rose by 1.7e-6 relative with the
+#: correction.
+DEUTERON_MASS_U: Final = 2.013553212544
+TRITON_MASS_U: Final = 3.01550071597
+#: Energy released by one D + T -> alpha + n reaction, in MeV: the Q-value
+#: from the CODATA 2022 deuteron, triton, alpha and neutron masses is
+#: 17.5892 MeV; this is it rounded to four figures.
 DT_FUSION_ENERGY_MEV: Final = 17.59
 #: Cubic centimetres in a cubic millimetre.
 CUBIC_MM_PER_CUBIC_CM: Final = 1.0e-3
