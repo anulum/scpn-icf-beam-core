@@ -11,6 +11,7 @@
 from __future__ import annotations
 
 import math
+from typing import Any
 
 import pytest
 
@@ -196,3 +197,28 @@ def test_every_range_pair_value_must_be_positive(field_name: str) -> None:
     values[field_name] = 0.0
     with pytest.raises(DeviceConfigurationError, match=field_name):
         range_energy_exponent(**values)
+
+
+@pytest.mark.parametrize(
+    "count",
+    [True, False, 1.5, 2.0, math.nan, math.inf, "2"],
+    ids=["true", "false", "fraction", "integral-float", "nan", "inf", "string"],
+)
+def test_a_beam_count_that_is_not_an_integer_is_refused(count: Any) -> None:
+    """A beam count is never rounded; 1.5 beams per side is refused.
+
+    Before this guard ``total_beam_count(1.5)`` returned 3.0 and a
+    boolean counted as one beam.
+    """
+    with pytest.raises(DeviceConfigurationError, match="must be an integer"):
+        require_beam_count(count)
+    with pytest.raises(DeviceConfigurationError, match="must be an integer"):
+        total_beam_count(count)
+    with pytest.raises(DeviceConfigurationError, match="must be an integer"):
+        energy_per_beam_mj(5.0, count)
+
+
+def test_integer_beam_counts_keep_their_results() -> None:
+    """The minimum and a larger count are unchanged by the guard."""
+    assert require_beam_count(1) == 1
+    assert total_beam_count(16) == 32

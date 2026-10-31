@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import dataclasses
 import json
+from typing import Any
 
 import pytest
 
@@ -424,3 +425,21 @@ def test_a_layering_whose_radii_are_inverted_never_reaches_the_geometry() -> Non
             fuel_density_g_cm3=0.25,
             vapour_density_g_cm3=0.3e-3,
         )
+
+
+@pytest.mark.parametrize(
+    ("segments", "rings", "field"),
+    [
+        (8.0, ANCHOR_RINGS, "segments"),
+        (ANCHOR_SEGMENTS, 41.0, "rings"),
+        (True, ANCHOR_RINGS, "segments"),
+        (ANCHOR_SEGMENTS, True, "rings"),
+    ],
+    ids=["float-segments", "float-rings", "bool-segments", "bool-rings"],
+)
+def test_a_count_that_is_not_an_integer_is_refused(
+    segments: Any, rings: Any, field: str
+) -> None:
+    """Integral floats reached the mesher and failed there with TypeError."""
+    with pytest.raises(DeviceGeometryError, match=f"{field}: must be an integer"):
+        build_device_model(anchor_configuration(), anchor_capsule(), segments, rings)

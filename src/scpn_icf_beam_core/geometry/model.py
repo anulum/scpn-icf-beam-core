@@ -350,11 +350,15 @@ def build_device_model(
     Raises
     ------
     DeviceGeometryError
-        If a count is invalid; the library's refusals are re-raised
-        under the device error type with their messages.
+        If a count is not an integer (booleans and floats included) or is
+        otherwise invalid; the library's refusals are re-raised under the
+        device error type with their messages.
     DeviceConfigurationError
         If the declared layering does not fit inside the pellet.
     """
+    for name, count in (("segments", segments), ("rings", rings)):
+        if isinstance(count, bool) or not isinstance(count, int):
+            raise DeviceGeometryError(f"{name}: must be an integer, got {count!r}")
     try:
         require_segments(segments)
         require_rings(rings)

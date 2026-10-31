@@ -65,9 +65,15 @@ def require_beam_count(beams_per_side: int) -> int:
     Raises
     ------
     DeviceConfigurationError
-        If the count is below :data:`MIN_BEAMS_PER_SIDE`. A cone with no
-        beam in it does not illuminate anything.
+        If the count is not an integer (a boolean, an integral or a
+        fractional float, NaN or infinity included) or is below
+        :data:`MIN_BEAMS_PER_SIDE`. A beam count is never rounded, and a
+        cone with no beam in it does not illuminate anything.
     """
+    if isinstance(beams_per_side, bool) or not isinstance(beams_per_side, int):
+        raise DeviceConfigurationError(
+            f"beams_per_side: must be an integer, got {beams_per_side!r}"
+        )
     if beams_per_side < MIN_BEAMS_PER_SIDE:
         raise DeviceConfigurationError(
             f"beams_per_side: must be at least {MIN_BEAMS_PER_SIDE}, "

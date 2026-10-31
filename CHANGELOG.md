@@ -14,6 +14,12 @@ SCPN ICF Beam Core — CHANGELOG
 
 ### Fixed
 
+- Beam counts and tessellation counts are integers or are refused with the
+  family error before any computation: `require_beam_count`,
+  `total_beam_count`, `energy_per_beam_mj` and `IlluminationDeclaration`
+  accepted booleans, fractional and integral floats, NaN and infinity
+  (`total_beam_count(1.5)` returned 3.0), and `build_device_model` failed
+  with a bare `TypeError` for an integral-float segment or ring count.
 - The triton mass in `physics/capsule.py` was mistyped (3.01550941034 u,
   2.9e-6 relative above any CODATA value) and the deuteron mass was the
   CODATA 2018 value beside a CODATA 2022 mass unit. Both are now CODATA 2022

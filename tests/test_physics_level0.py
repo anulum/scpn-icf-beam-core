@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 import math
+from typing import Any
 
 import pytest
 
@@ -341,3 +342,14 @@ def test_the_record_carries_the_digest_of_the_configuration_it_was_built_from() 
         configuration, anchor_capsule(), anchor_illumination(), anchor_shot()
     )
     assert record.configuration_digest_sha256 == configuration.digest_sha256()
+
+
+@pytest.mark.parametrize("count", [True, 16.0, 1.5], ids=["bool", "float", "fraction"])
+def test_the_illumination_refuses_a_beam_count_that_is_not_an_integer(
+    count: Any,
+) -> None:
+    """The declaration applies the same integer contract as the functions."""
+    with pytest.raises(DeviceConfigurationError, match="must be an integer"):
+        IlluminationDeclaration(
+            beams_per_side=count, major_semi_axis_mm=4.15, minor_semi_axis_mm=1.8
+        )
