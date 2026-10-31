@@ -76,7 +76,8 @@ SCHEMA: Final = "scpn-icf-beam-core.level0-physics-benchmark.v1"
 NATIVE_STATUS: Final = (
     "unavailable: this package has no native crate; the level-0 kernels use "
     "+ - * /, the correctly rounded sqrt and the platform pow (squares and "
-    "cubes) and log, and the native decision of audit plan Q01 awaits the owner"
+    "cubes) and log, and the decision on a native backend is open with the "
+    "project owner"
 )
 
 
