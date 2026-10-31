@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-10-31T03:45:46.847907+00:00",
+  "label": "local",
+  "parameters": {
+    "points": 20000,
+    "record_points": 2000,
+    "repeats": 20,
+    "warmup": 3
+  },
+  "platform": {
+    "commit": "890399a3b1c1bf370b3cd643b11c20d343c343b0",
+    "cpu_model": "11th Gen Intel(R) Core(TM) i5-11600K @ 3.90GHz",
+    "isolated_cores": false,
+    "load_average_1min_at_start": "4.69",
+    "machine": "x86_64",
+    "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3"
+  },
+  "results": [
+    {
+      "backend": "python_floor",
+      "name": "closed_forms",
+      "stats": {
+        "max_us_per_point": 2.32694855,
+        "mean_us_per_point": 1.52251988,
+        "min_us_per_point": 1.27999725,
+        "p50_us_per_point": 1.51752845,
+        "p95_us_per_point": 1.7943852500000002,
+        "p99_us_per_point": 2.32694855,
+        "throughput_points_per_s": 658966.2289362681
+      },
+      "status": "measured"
+    },
+    {
+      "backend": "rust_native",
+      "name": "closed_forms",
+      "stats": null,
+      "status": "unavailable: this package has no native crate; the level-0 kernels use + - * /, the correctly rounded sqrt and the platform pow (squares and cubes) and log, and the native decision of audit plan Q01 awaits the owner"
+    },
+    {
+      "backend": "python_floor",
+      "name": "level0_record",
+      "stats": {
+        "max_us_per_point": 67.19415,
+        "mean_us_per_point": 46.9874559,
+        "min_us_per_point": 37.710133500000005,
+        "p50_us_per_point": 43.063117,
+        "p95_us_per_point": 66.8982455,
+        "p99_us_per_point": 67.19415,
+        "throughput_points_per_s": 23221.728236718212
+      },
+      "status": "measured"
+    },
+    {
+      "backend": "rust_native",
+      "name": "level0_record",
+      "stats": null,
+      "status": "unavailable: this package has no native crate; the level-0 kernels use + - * /, the correctly rounded sqrt and the platform pow (squares and cubes) and log, and the native decision of audit plan Q01 awaits the owner"
+    }
+  ],
+  "schema": "scpn-icf-beam-core.level0-physics-benchmark.v1"
+}
