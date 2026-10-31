@@ -12,6 +12,12 @@ SCPN ICF Beam Core — CHANGELOG
 
 ## [Unreleased]
 
+### Fixed
+
+- `build_device_cad` raises `CadUnavailableError` when the optional CAD
+  back-end is missing, as documented; it previously re-raised it as
+  `DeviceGeometryError`.
+
 ### Security
 
 - `configuration_from_bytes` refuses duplicate JSON members and any document
@@ -22,6 +28,13 @@ SCPN ICF Beam Core — CHANGELOG
   follow as their own error type; a `RecursionError` previously escaped
   them. Property and fuzz tests cover arbitrary bytes, single-byte
   mutations, field substitutions and overflowing number literals.
+
+### Added
+
+- An installed-wheel job in the required CI gate: the wheel is built
+  without build isolation from hash-locked `setuptools` and `wheel`
+  (`requirements-build.txt`), installed into clean base and CAD environments
+  and exercised from outside the checkout by `tools/installed_package_check.py`.
 
 ### Changed
 
