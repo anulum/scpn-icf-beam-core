@@ -38,10 +38,12 @@ configurations this repository owns (`ion_beam_icf`,
    `pulsed_electron_beam_icf`.
 4. Derived quantity: the beam power ``P = E / tau``. Advisory finding,
    reported by `consistency_report()` and never clamped: an ion-class
-   per-particle kinetic energy outside the documented heavy-ion-fusion
-   driver window ``[1, 10] GeV`` (R. O. Bangerter, A. Faltens,
-   P. A. Seidl, Rev. Accel. Sci. Technol. 6 (2013) 85); the window is
-   not applied to the electron class.
+   per-particle kinetic energy outside the declared heavy-ion-fusion
+   driver window ``[1, 10] GeV``; the window is not applied to the
+   electron class. The filed target reports use 2.2 to 8 GeV lead ions
+   (Callahan-Miller & Tabak, UCRL-JC-131974 (1998), PDF pp. 4-5) and
+   5 to 10 GeV ion beams (Ho, Harte & Tabak, UCRL-JC-118161 (1994),
+   PDF p. 8).
 5. Repository-level `evidence_maturity` = the highest state claimed by
    any capability entry; per-capability states are the authoritative
    claim surface.
@@ -59,3 +61,11 @@ configurations this repository owns (`ion_beam_icf`,
 - Later lanes (driver/burn diagnostic semantics with the bang-time
   anchor, safety envelope) build on these types; maturity advances per
   capability only with the evidence the family standard requires.
+
+## Amendment 2026-10-31
+
+The ``[1, 10] GeV`` window was credited to R. O. Bangerter, A. Faltens,
+P. A. Seidl, Rev. Accel. Sci. Technol. 6 (2013) 85, which is not on
+file, and called documented. It is now named declared; the ion energies
+printed by the two filed heavy-ion target reports (2.2 to 10 GeV) are
+quoted beside it. No value or check changed.

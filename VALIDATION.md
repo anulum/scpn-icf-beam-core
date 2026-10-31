@@ -84,9 +84,12 @@ What is exercised, all under the 100 % statement-and-branch coverage gate:
   rejection branch is tested.
 - The beam-power relation `P = E / tau` as a documented derived
   quantity, with an advisory finding for ion-class per-particle energies
-  outside the documented heavy-ion driver window `[1, 10] GeV`
-  (Bangerter, Faltens & Seidl, Rev. Accel. Sci. Technol. 6 (2013) 85;
-  not applied to the electron class), reported and never clamped.
+  outside the declared heavy-ion driver window `[1, 10] GeV` (the filed
+  target reports use 2.2 to 8 GeV lead ions, Callahan-Miller & Tabak
+  1998, PDF pp. 4-5, and 5 to 10 GeV ion beams, Ho, Harte & Tabak 1994,
+  PDF p. 8; the Bangerter, Faltens & Seidl 2013 credit, not on file, was
+  removed on 2026-10-31; not applied to the electron class), reported
+  and never clamped.
 - Canonical serialisation (sorted keys, NaN/infinity rejected on both
   emit and parse), SHA-256 digest identity, and a strict round-trip
   parser that refuses unknown fields.

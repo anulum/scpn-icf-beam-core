@@ -10,9 +10,9 @@
 
 The derived quantity implements one standard estimate and nothing more:
 the beam power ``P = E / tau``. It is a rough consistency instrument
-with documented applicability bounds (heavy-ion driver window;
-R. O. Bangerter, A. Faltens, P. A. Seidl, Rev. Accel. Sci. Technol. 6
-(2013) 85); no claim about any real machine follows from it.
+with documented applicability bounds (the declared heavy-ion driver
+window; see the configuration module); no claim about any real machine
+follows from it.
 """
 
 from __future__ import annotations

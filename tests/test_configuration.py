@@ -89,6 +89,7 @@ def test_consistency_report_clean_and_findings() -> None:
     findings = slow.consistency_report()
     assert len(findings) == 1
     assert "heavy-ion driver" in findings[0].message
+    assert "declared heavy-ion driver" in findings[0].message
     electron = synthetic_configuration(
         "pulsed_electron_beam_icf", species="electron", particle_energy_gev=0.1
     )

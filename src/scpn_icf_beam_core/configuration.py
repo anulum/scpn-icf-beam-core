@@ -12,12 +12,16 @@ A :class:`DeviceConfiguration` composes a validated beam driver and
 target declaration under exactly one of the two registry identifiers
 this repository owns. The species class invariant is hard (ion for
 `ion_beam_icf`, electron for `pulsed_electron_beam_icf`); an ion-class
-per-particle energy outside the documented heavy-ion driver window is
-flagged (Bangerter, Faltens & Seidl, RAST 6 (2013) 85). Serialisation
-is canonical (sorted keys, no NaN or infinity accepted anywhere) and
-the SHA-256 digest of those bytes identifies the exact parameter set.
-The registry binding is a data pin only — this package never imports
-SCPN Phase Orchestrator code.
+per-particle energy outside the declared heavy-ion driver window ``[1,
+10] GeV`` is flagged. The window is a modelling choice: the filed
+heavy-ion target reports use 2.2 to 8 GeV lead ions (D. A.
+Callahan-Miller, M. Tabak, UCRL-JC-131974 (1998), PDF pp. 4-5) and 5 to
+10 GeV ion beams (D. D.-M. Ho, J. A. Harte, M. Tabak, UCRL-JC-118161
+(1994), PDF p. 8); Bangerter, Faltens & Seidl, RAST 6 (2013) 85, is not
+on file. Serialisation is canonical (sorted keys, no NaN or infinity
+accepted anywhere) and the SHA-256 digest of those bytes identifies the
+exact parameter set. The registry binding is a data pin only — this
+package never imports SCPN Phase Orchestrator code.
 """
 
 from __future__ import annotations
@@ -149,8 +153,8 @@ class DeviceConfiguration:
         Returns
         -------
         tuple of ConsistencyFinding
-            Advisory findings from the documented estimates; empty when
-            an ion-class per-particle energy sits in the documented
+            Advisory findings from the declared estimates; empty when
+            an ion-class per-particle energy sits in the declared
             heavy-ion driver window, and always empty for the electron
             class. Findings are advisory instruments, not machine
             claims.
@@ -165,7 +169,7 @@ class DeviceConfiguration:
                         field="driver.particle_energy_gev",
                         message=(
                             f"per-particle energy {energy:.3g} GeV is "
-                            f"outside the documented heavy-ion driver "
+                            f"outside the declared heavy-ion driver "
                             f"window [{low:.0f}, {high:.0f}] GeV"
                         ),
                     )

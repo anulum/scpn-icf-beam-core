@@ -20,7 +20,7 @@ Outputs (written next to this script):
   lattices and converging ion bunches (used by ``README.md``).
 - ``repo_header_species_split.png`` — the ion class beside the pulsed
   electron class.
-- ``repo_header_energy_window.png`` — the documented heavy-ion driver
+- ``repo_header_energy_window.png`` — the declared heavy-ion driver
   window with flagged outliers.
 
 Generation-time tooling only: requires ``numpy`` and ``matplotlib``,
@@ -52,7 +52,7 @@ TITLE_METRICS: list[tuple[str, str]] = [
     ("Device Configurations", "ion_beam · pulsed_electron_beam"),
     ("Species Invariant", "ion vs electron class, hard"),
     ("Ion Energy Window", "heavy-ion driver window flagged"),
-    ("Reference", "Bangerter et al., RAST 6 (2013) 85"),
+    ("Reference", "LLNL target reports 1994, 1998"),
     ("Plan Envelope", "v1.1.0 · synthetic · review-only"),
     ("Quality Gates", "100% branch cov · mypy --strict"),
 ]
@@ -510,7 +510,7 @@ def generate_energy_window() -> None:
     ax.text(
         4.9,
         5.15,
-        "documented heavy-ion driver window",
+        "declared heavy-ion driver window",
         color=GREEN,
         fontsize=8.5,
         fontfamily="monospace",
@@ -565,14 +565,13 @@ def generate_energy_window() -> None:
     ax.text(
         5.0,
         0.75,
-        "ion-class per-particle energy checked · Bangerter, Faltens, "
-        "Seidl, RAST 6 (2013) 85",
+        "ion-class per-particle energy checked · filed reports use 2.2-10 GeV",
         color="#445566",
         fontsize=8,
         fontfamily="monospace",
         ha="center",
     )
-    _text_panel(fig, "An Energy Window, Not A Guess")
+    _text_panel(fig, "A Declared Energy Window")
     _save(fig, plt, "repo_header_energy_window.png")
 
 
