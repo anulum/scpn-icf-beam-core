@@ -115,8 +115,8 @@ Declared, with no source claimed:
   tests are bounds.
 - **The illumination review truncates its gains.** 370/6.35 is 58.2677
   and it prints 58; 413/7.4 is 55.8108 and it prints 55; 436/3.3 is
-  132.1212 and it prints 132. All three are floors, and the middle one
-  is not the rounded value. A test asserting rounding would have failed
+  132.1212 and it prints 132; 390/5.9 is 66.1017 and it prints 66. All
+  four are floors, and 55 is not the rounded value. A test asserting rounding would have failed
   on it.
 - **No single power law joins the three printed range pairs.** The
   exponents are 1.1200, 1.2544 and 1.1926, and the test asserts that

@@ -61,7 +61,7 @@ from scpn_icf_beam_core.physics.level0 import (
     ShotDeclaration,
 )
 
-# --- Ho et al. 1994, Fig. 1: the capsule, in millimetres and g/cm3 ---
+# --- Ho et al. 1994, Fig. 1 (PDF p. 9): the capsule, in mm and g/cm3 ---
 PRINTED_HO_PELLET_RADIUS_MM: Final = 2.34
 PRINTED_HO_FUEL_OUTER_RADIUS_MM: Final = 2.12
 PRINTED_HO_FUEL_INNER_RADIUS_MM: Final = 1.8
@@ -69,7 +69,8 @@ PRINTED_HO_ABLATOR_DENSITY_G_CM3: Final = 1.85
 PRINTED_HO_FUEL_DENSITY_G_CM3: Final = 0.25
 PRINTED_HO_VAPOUR_DENSITY_G_CM3: Final = 0.3e-3
 
-# --- Ho et al. 1994, abstract and sections 1-2: the coupling chain ---
+# --- Ho et al. 1994, summary (PDF p. 6), sections 1-2 (printed p. 2, PDF p. 5)
+# and the figure captions (printed p. 4, PDF p. 8): the coupling chain ---
 PRINTED_HO_ABSORBED_ENERGY_MJ: Final = 1.0
 PRINTED_HO_YIELD_MJ: Final = 430.0
 PRINTED_HO_COUPLING_EFFICIENCY: Final = 0.21
@@ -79,7 +80,7 @@ PRINTED_HO_PEAK_RADIATION_TEMPERATURE_EV: Final = 260.0
 PRINTED_HO_CONVERTER_OPENING_RADIUS_CM: Final = 0.15
 PRINTED_HO_ION_ENERGIES_GEV: Final = (5.0, 7.5, 10.0)
 
-# --- Callahan-Miller & Tabak 1998: the beam arrangement ---
+# --- Callahan-Miller & Tabak 1998, printed pp. 2-3 (PDF pp. 4-5): the beams ---
 PRINTED_CALLAHAN_MAJOR_SEMI_AXIS_MM: Final = 4.15
 PRINTED_CALLAHAN_MINOR_SEMI_AXIS_MM: Final = 1.8
 PRINTED_CALLAHAN_EFFECTIVE_RADIUS_MM: Final = 2.7
@@ -92,12 +93,15 @@ PRINTED_CALLAHAN_FOOT_ION_ENERGY_GEV: Final = 3.0
 PRINTED_CALLAHAN_MAIN_ION_ENERGY_GEV: Final = 4.0
 
 #: Driver energy, yield and the gain the review prints for each of its
-#: four cases, in megajoules. The fourth case prints no gain.
+#: four cases, in megajoules. The first three are on its page 2 (PDF p. 4)
+#: and page 3 (PDF p. 5); the fourth, the baseline integrated run, is
+#: printed in the illumination paragraph of page 2: "5.9 MJ of beam energy
+#: and produced 390 MJ of yield ... for a gain of 66".
 PRINTED_CALLAHAN_CASES: Final = (
     (6.35, 370.0, 58.0),
     (7.4, 413.0, 55.0),
     (3.3, 436.0, 132.0),
-    (5.9, 390.0, None),
+    (5.9, 390.0, 66.0),
 )
 
 #: Ion kinetic energy and the range the review states for it, in GeV and

@@ -87,32 +87,30 @@ def test_the_factorisation_is_consistent_in_both_directions() -> None:
 
 
 def test_every_printed_gain_of_the_illumination_review_is_a_truncation() -> None:
-    """Its three printed gains are floors of its own quotients.
+    """Its four printed gains are floors of its own quotients.
 
     Measured: 370/6.35 is 58.2677 and it prints 58; 413/7.4 is 55.8108
-    and it prints 55; 436/3.3 is 132.1212 and it prints 132. All three
-    are the floor. The middle one is **not** the rounded value — 55.8108
-    rounds to 56 — so the review truncates rather than rounds, and a
-    test that asserted rounding would have failed on it.
+    and it prints 55; 436/3.3 is 132.1212 and it prints 132; 390/5.9 is
+    66.1017 and it prints 66. All four are the floor. The 55 is **not**
+    the rounded value — 55.8108 rounds to 56 — so the review truncates
+    rather than rounds, and a test that asserted rounding would have
+    failed on it.
     """
     for driver, released, printed in PRINTED_CALLAHAN_CASES:
-        computed = target_gain(released, driver)
-        if printed is None:
-            continue
-        assert math.floor(computed) == printed
+        assert math.floor(target_gain(released, driver)) == printed
     middle = target_gain(413.0, 7.4)
     assert round(middle) != 55
     assert math.floor(middle) == 55
 
 
-def test_the_case_without_a_printed_gain_is_left_without_one() -> None:
-    """The review prints a yield and a driver energy and no gain here.
+def test_the_baseline_case_recovers_its_printed_gain() -> None:
+    """The baseline run prints 66 beside 5.9 MJ in and 390 MJ out.
 
-    Measured at 66.10. It is computed and recorded, and nothing is
-    attributed to the review that the review does not say.
+    Measured at 66.1017; its floor is the printed 66. (Until 2026-10-31
+    this case was recorded as printing no gain; page 2 prints it.)
     """
     driver, released, printed = PRINTED_CALLAHAN_CASES[3]
-    assert printed is None
+    assert printed == 66.0
     assert math.isclose(target_gain(released, driver), 66.1017, abs_tol=5e-5)
 
 

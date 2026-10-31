@@ -51,6 +51,11 @@ SCPN ICF Beam Core — CHANGELOG
 
 ### Changed
 
+- The illumination review's baseline case is anchored with the gain it
+  prints (66 for 5.9 MJ in and 390 MJ out); it had been recorded as printing
+  none. All four printed gains are floors of their quotients. The test
+  fixtures name the page of every anchor. No value of the package changes.
+
 - `scpn_icf_beam_core.observability` is now a package with one module per
   responsibility — vocabulary, catalogue binding, frames, clocks, signals and
   channels, plan composition, record parsing — behind the unchanged public
