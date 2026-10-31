@@ -1,6 +1,6 @@
 {
   "title": "SCPN ICF Beam Core",
-  "description": "Governed device-family repository for ion-beam and pulsed-electron-beam inertial confinement fusion configurations within the SCPN Reactor Systems Research Group. Currently architecture-only: boundary contracts, CONTROL adapter specification, and validation tooling, with no implemented reactor capability.",
+  "description": "Governed device-family repository for ion-beam and pulsed-electron-beam inertial confinement fusion configurations within the SCPN Reactor Systems Research Group. Evidence maturity computational_prototype: a validated device configuration model, diagnostic and clock semantics aligned with the SCPN Phase Orchestrator observability catalogue, level-0 device physics (the illumination geometry a particle-beam driver puts on a target, the mass inventory of a layered capsule, and the chain of efficiencies from beam to fusion energy), and tessellated and B-rep models of the layered capsule. All parameter sets are synthetic or anchored on freely published preprints; no real machine is described, and the claim inventory is empty.",
   "upload_type": "software",
   "access_right": "open",
   "license": "AGPL-3.0-or-later",
