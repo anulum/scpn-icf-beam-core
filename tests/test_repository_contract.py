@@ -62,7 +62,7 @@ REQUIRED_PATHS = (
     "src/scpn_icf_beam_core/__init__.py",
     "src/scpn_icf_beam_core/configuration.py",
     "src/scpn_icf_beam_core/errors.py",
-    "src/scpn_icf_beam_core/observability.py",
+    "src/scpn_icf_beam_core/observability/__init__.py",
     "src/scpn_icf_beam_core/plan_envelope.py",
     "tests/data/plan_envelope_fixture.json",
     "src/scpn_icf_beam_core/parameters.py",
