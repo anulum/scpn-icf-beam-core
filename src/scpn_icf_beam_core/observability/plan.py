@@ -428,9 +428,9 @@ class DiagnosticPlan:
                         message=(
                             "declared asymmetry-mode band "
                             f"{channel.max_signal_frequency_hz:.1f} "
-                            "Hz is outside the ns-scale implosion "
-                            "asymmetry evolution range 1 MHz-10 GHz "
-                            "(Bangerter 2013)"
+                            "Hz is outside the declared implosion-asymmetry "
+                            "design band 1 MHz-10 GHz (synthetic; not "
+                            "checked against a source on file)"
                         ),
                     )
                 )
@@ -444,9 +444,9 @@ class DiagnosticPlan:
                         field=f"channels[{channel.identifier}].timing_uncertainty_s",
                         message=(
                             f"timing uncertainty {channel.timing_uncertainty_s:.2e} s"
-                            " is coarser than the sub-ns "
-                            "bunch-arrival precision of beam drivers "
-                            "(Bangerter 2013)"
+                            " is coarser than the declared 1 ns "
+                            "bunch-arrival timing design bound (synthetic; "
+                            "not checked against a source on file)"
                         ),
                     )
                 )
@@ -457,8 +457,8 @@ class DiagnosticPlan:
                         message=(
                             "acquisition window "
                             f"{channel.acquisition_duration_s:.2e} s is "
-                            "longer than the beam-ICF shot scale of up to ~1 us "
-                            "(Bangerter 2013)"
+                            "longer than the declared ~1 us shot-duration bound "
+                            "(synthetic; not checked against a source on file)"
                         ),
                     )
                 )

@@ -93,7 +93,8 @@ def test_report_flags_mhd_band_outside_typical_range() -> None:
     )
     findings = plan.consistency_report()
     assert len(findings) == 1
-    assert "Bangerter" in findings[0].message
+    assert "declared" in findings[0].message
+    assert "Bangerter" not in findings[0].message
 
 
 def test_report_flags_coarse_transient_timing() -> None:
@@ -132,7 +133,8 @@ def test_report_flags_coarse_transient_timing() -> None:
     )
     findings = plan.consistency_report()
     assert len(findings) == 1
-    assert "Bangerter" in findings[0].message
+    assert "declared" in findings[0].message
+    assert "Bangerter" not in findings[0].message
 
 
 def test_report_flags_clock_coarser_than_sampling() -> None:

@@ -121,8 +121,13 @@ What is exercised, all under the 100 % statement-and-branch coverage gate:
   release is rejected.
 - A reference plan mirroring canonical practice with synthetic
   declarations: bunch-timing train, trajectory radiography, asymmetry mode set, shot-outcome set, synthetic oscillator, each bound to its clock domain.
-- Documented advisory band and timing checks with their sources stated
-  in the code: implosion-asymmetry bands of 1 MHz–10 GHz and sub-ns bunch timing (Bangerter 2013); findings are reported, never clamped.
+- Advisory checks against declared synthetic design bounds: an
+  implosion-asymmetry band of 1 MHz–10 GHz, a 1 ns bunch-arrival timing
+  bound and a ~1 µs shot-duration bound. They were earlier credited to
+  Bangerter, Faltens & Seidl, Rev. Accel. Sci. Technol. 6 (2013) 85, which
+  is not obtainable (ADR 0005), so they were never checked against it; the
+  attribution was removed (2026-10-31). Findings are reported, never
+  clamped.
 - Canonical serialisation (sorted keys, NaN/infinity rejected on both
   emit and parse), SHA-256 digest identity, and a strict round-trip
   parser that refuses unknown fields.

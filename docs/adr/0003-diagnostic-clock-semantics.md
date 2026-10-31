@@ -50,7 +50,14 @@ features), `inertial.resolved_asymmetry_mode` (derived cyclic), and
 4. Timing is fail-closed where physics fixes the bound: the Nyquist
    criterion for cyclic channels, a positive event-timing bound, and
    clock resolution at or below that bound. The device-typical checks
-   are advisory only: the ns-scale implosion-asymmetry evolution range 1 MHz–10 GHz and the sub-ns bunch-arrival precision of heavy-ion and pulsed-electron drivers (R. O. Bangerter et al., J. Fusion Energy 32 (2013) 549).
+   are advisory only and compare against declared synthetic design bounds:
+   an implosion-asymmetry band of 1 MHz–10 GHz, a 1 ns bunch-arrival timing
+   bound and a ~1 µs shot-duration bound. An earlier version credited them
+   to Bangerter, Faltens & Seidl, Rev. Accel. Sci. Technol. 6 (2013) 85,
+   which is not obtainable (ADR 0005), so they were never checked against it
+   (attribution removed 2026-10-31). This record had also given
+   the locator as J. Fusion Energy 32 (2013) 549, where no such paper was
+   found.
 5. The reference plan mirrors canonical practice with synthetic
    declarations: a bunch-arrival event train (event relative against the shot fiducial), streaked-radiography trajectory and shot-outcome sets (noncyclic), an implosion-asymmetry mode set (derived cyclic against the facility clock), and the model-owned synthetic oscillator (simulation clock). Every applicable candidate must be
    planned or explicitly deferred with a reason; every channel is
